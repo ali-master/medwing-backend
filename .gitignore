@@ -3,10 +3,12 @@
 # IDE & Code editors
 .idea/
 
+/db
 # dependencies
 /node_modules
 /.pnp
 .pnp.js
+
 
 /ignore
 

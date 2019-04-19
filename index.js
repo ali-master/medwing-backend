@@ -28,10 +28,12 @@ dbConnection.then(db => {
 
 			app.listen(serverPort, err => {
 				if (err) throw err;
+
 				console.log(">>> Express listening on port", serverPort);
 			});
 		});
 });
+// Base express config
 const Server = () => {
 	const app = express();
 
@@ -40,6 +42,7 @@ const Server = () => {
 	return app;
 };
 
+// Express routes
 const Router = () => {
 	const router = express.Router();
 

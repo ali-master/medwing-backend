@@ -1,13 +1,6 @@
 {
   "markers": [
     {
-      "id": 1111,
-      "title": "Test",
-      "description": "Test description",
-      "lat": 3,
-      "lng": 2
-    },
-    {
       "id": 2,
       "title": "Test",
       "description": "Test description",

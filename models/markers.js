@@ -3,7 +3,7 @@ const R = require("ramda");
 module.exports = function(db) {
 	const vm = {
 		/**
-		 * Yields all markers
+		 * Yields all saved markers list
 		 */
 		get() {
 			return new Promise(resolve => {
@@ -104,6 +104,33 @@ module.exports = function(db) {
 							});
 						});
 				});
+			});
+		},
+		/**
+		 * Delete a marker by id
+		 * @param {Number} id
+		 * @returns {Promise}
+		 */
+		delete(id) {
+			return new Promise(resolve => {
+				const cursor = db
+					.get("markers")
+					.remove({ id: +id })
+					.write();
+
+				cursor
+					.then(Result => {
+						resolve({
+							Result,
+						});
+					})
+					.catch(error => {
+						reject({
+							code: "EXCEPTION",
+							msg: "Can't delete the requested marker",
+							inner_exeption: error,
+						});
+					});
 			});
 		},
 	};
