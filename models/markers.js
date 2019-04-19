@@ -1,4 +1,5 @@
 const R = require("ramda");
+const uuidv4 = require("uuid/v4");
 
 module.exports = function(db) {
 	const vm = {
@@ -24,7 +25,7 @@ module.exports = function(db) {
 			return new Promise(resolve => {
 				const cursor = db
 					.get("markers")
-					.find({ id: +id })
+					.find({ id })
 					.value();
 
 				resolve({
@@ -39,32 +40,22 @@ module.exports = function(db) {
 		 */
 		add(marker) {
 			return new Promise((resolve, reject) => {
-				vm.find(marker.id).then(({ Result }) => {
-					if (!Result) {
-						// requested marker is not available in db
-						// so we add it to db
-						const cursor = db
-							.get("markers")
-							.push(marker)
-							.write();
+				marker = R.merge(marker)({ id: uuidv4() });
+				const cursor = db
+					.get("markers")
+					.push(marker)
+					.write();
 
-						return cursor
-							.then(() => {
-								resolve(marker);
-							})
-							.catch(error => {
-								reject({
-									code: "EXEPTION",
-									inner_exeption: error,
-								});
-							});
-					}
-
-					return reject({
-						code: "DUPLICATE_MARKER",
-						msg: "This marker is repeated",
+				return cursor
+					.then(() => {
+						resolve(marker);
+					})
+					.catch(error => {
+						reject({
+							code: "EXEPTION",
+							inner_exeption: error,
+						});
 					});
-				});
 			});
 		},
 		/**
@@ -74,7 +65,7 @@ module.exports = function(db) {
 		 * @returns {Promise}
 		 */
 		update(id, restFields) {
-			return new Promise(resolve => {
+			return new Promise((resolve, reject) => {
 				vm.find(id).then(({ Result }) => {
 					if (!Result) {
 						return reject({
@@ -86,7 +77,7 @@ module.exports = function(db) {
 
 					const cursor = db
 						.get("markers")
-						.find({ id: +id })
+						.find({ id })
 						.assign(R.omit(["id"])(restFields))
 						.write();
 
@@ -115,7 +106,7 @@ module.exports = function(db) {
 			return new Promise(resolve => {
 				const cursor = db
 					.get("markers")
-					.remove({ id: +id })
+					.remove({ id })
 					.write();
 
 				cursor

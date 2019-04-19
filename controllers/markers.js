@@ -7,7 +7,7 @@ const router = express.Router();
  * Yields all markers list
  */
 router.get("/markers", (req, res) => {
-	Markers.get().then(Result => {
+	Markers.get().then(({ Result }) => {
 		res.json({ Success: true, Result });
 	});
 });
@@ -43,7 +43,7 @@ router.put("/marker/:id", (req, res) => {
 	const { id: markerId } = req.params;
 
 	Markers.update(markerId, req.body)
-		.then(Result => {
+		.then(({ Result }) => {
 			res.json({ Success: true, Result });
 		})
 		.catch(error => {

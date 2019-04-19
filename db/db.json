@@ -1,18 +1,11 @@
 {
   "markers": [
     {
-      "id": 2,
-      "title": "Test",
-      "description": "Test description",
-      "lat": 1,
-      "lng": 1
-    },
-    {
-      "id": 3,
-      "title": "Test",
-      "description": "Test description",
-      "lat": 1,
-      "lng": 1
+      "id": "3ac74349-25fa-40b6-8e4b-ce71efcc3c77",
+      "title": "Leipzig",
+      "description": "Leipzig",
+      "lat": 38.575078,
+      "lng": -8.945406
     }
   ],
   "position": {},
