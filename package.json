@@ -1,0 +1,33 @@
+{
+	"name": "medwing-backend",
+	"version": "0.0.0",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"start": "pm2 start scripts/pm2.config.js"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/ali-master/medwing-backend.git"
+	},
+	"author": "Ali Torki <ali_4286@live.com>",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/ali-master/medwing-backend/issues"
+	},
+	"homepage": "https://github.com/ali-master/medwing-backend#readme",
+	"description": "",
+	"devDependencies": {
+		"bluebird": "^3.5.4",
+		"body-parser": "^1.18.3",
+		"cors": "^2.8.5",
+		"dotenv": "^7.0.0",
+		"express": "^4.16.4",
+		"lodash-id": "^0.14.0",
+		"pm2": "^3.5.0"
+	},
+	"dependencies": {
+		"lowdb": "^1.0.0",
+		"ramda": "^0.26.1"
+	}
+}
