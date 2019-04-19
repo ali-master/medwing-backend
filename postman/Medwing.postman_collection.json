@@ -1,0 +1,158 @@
+{
+	"info": {
+		"_postman_id": "a3ff699f-1233-46a6-98e5-4384ba842122",
+		"name": "Medwing",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Markers",
+			"item": [
+				{
+					"name": "Get markers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{host}}/markers",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"markers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add marker",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id\": 4,\n\t\"title\": \"Test\",\n\t\"description\": \"Test description\",\n\t\"lat\": 1,\n\t\"lng\": 1\n}"
+						},
+						"url": {
+							"raw": "{{host}}/marker",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"marker"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update marker",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"lat\": 3\n}"
+						},
+						"url": {
+							"raw": "{{host}}/marker/1111",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"marker",
+								"1111"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get marker by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{host}}/marker/1111",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"marker",
+								"1111"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete marker",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{host}}/marker/4",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"marker",
+								"4"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "f0fcb23e-e007-4304-9b2c-d33075ab7113",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "bebb990c-64d4-453b-a0ea-c1d2e3d7182d",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
